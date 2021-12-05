@@ -1,13 +1,12 @@
 
-
 // adds current date and time to the header
 function dateTime () {
     var timeNow = moment().format("MMMM Do, YYYY [at] hh:mm:ss a");
     $("#currentDay").text(timeNow);
     return timeNow;
 }
-// sets interval of function dateTime to 1000 ms to update the date/time display every second
-setInterval(dateTime, 1000);
+    // sets interval of function dateTime to 1000 ms to update the date/time display every second
+    setInterval(dateTime, 1000);
 
 // create object for the values in each time block Row
 var timeBlockData = [
@@ -94,22 +93,24 @@ var timeBlockData = [
 timeBlockData.forEach(function(timeBlockEl) {
     // Time Block Row Element
     var rowEl = $("<form>")
-    .attr({ "class": "row"});
-    $(".container").append(rowEl);
+        rowEl.addClass("row");
+        $(".container").append(rowEl);
 
     // creates hour element
     var hourEl = $("<div>")
-    .text(`${timeBlockEl.hour}${timeBlockEl.meridiem}`)
-    .attr({"class": "col-md-2 hour"});
+         .text(`${timeBlockEl.hour}${timeBlockEl.meridiem}`)
+         hourEl.addClass("col-md-2 hour");
 
     // creates Description Element
     var descriptionEl = $("<div>")
-        .attr({"class": "col-md-9 description p-0"});
-    // text content of Description Element
-    var descriptionText = $("<textarea>");
-    // appends description element to include the text area
-    descriptionEl.append(descriptionText);
-    descriptionText.attr("id", timeBlockEl.row);
+        descriptionEl.addClass("col-md-9 description p-0");
+
+        // text content of Description Element
+        var descriptionText = $("<textarea>");
+
+        // appends description element to include the text area
+        descriptionEl.append(descriptionText);
+        descriptionText.attr("id", timeBlockEl.row);
 
     // adjusts color of rows based on the time of day
     if (timeBlockEl.time < moment().format("HH")) {
@@ -125,9 +126,11 @@ timeBlockData.forEach(function(timeBlockEl) {
     // creates save button element
     var saveBtnEl = $("<i class='far fa-save fa-lg'></i>");
     var saveBtn = $("<button>")
-        .attr({ "class": "col-md-1 saveBtn"});
+        saveBtn.addClass("col-md-1 saveBtn");
     
-    saveBtn.append(saveBtnEl);
+        saveBtn.append(saveBtnEl);
+
+    // append the row element data to include the hour element, description element, and the save button
     rowEl.append(hourEl, descriptionEl, saveBtn);
 
 

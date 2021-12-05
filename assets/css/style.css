@@ -18,7 +18,11 @@ textarea {
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 7px solid black;
+}
+
+#currentDay {
+  margin-top: 32px;
 }
 
 .description {

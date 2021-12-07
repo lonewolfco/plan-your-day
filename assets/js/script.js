@@ -98,6 +98,7 @@ var userInput;
 
 // function to create the time block row elements
 timeBlockData.forEach(function(timeBlockEl, index) {
+    
     // Time Block Row Element
     var rowEl = $("<form>")
         rowEl.addClass("row");
@@ -106,11 +107,11 @@ timeBlockData.forEach(function(timeBlockEl, index) {
     // creates hour element
         var hourEl = $("<div>")
          .text(`${timeBlockEl.hour}${timeBlockEl.meridiem}`)
-         hourEl.addClass("col-md-1 hour");
+         hourEl.addClass("col-12 col-md-1 hour");
 
     // creates Description Element
     var descriptionEl = $("<div>")
-        descriptionEl.addClass("col-md-10 description p-0");
+        descriptionEl.addClass("col-10 col-md-10 description p-0");
 
         // text content of Description Element
         var descriptionText = $("<textarea>");
@@ -142,7 +143,7 @@ timeBlockData.forEach(function(timeBlockEl, index) {
     // creates save button element
     saveBtnEl = $("<i class='far fa-save fa-lg'></i>");
     saveBtn = $("<button>")
-            saveBtn.addClass("col-md-1 saveBtn");
+            saveBtn.addClass("col-2 col-md-1 saveBtn");
         
             saveBtn.append(saveBtnEl);
         

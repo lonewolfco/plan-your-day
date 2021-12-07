@@ -1,4 +1,6 @@
 
+
+
 // adds current date and time to the header
 function dateTime () {
     var timeNow = moment().format("MMMM Do, YYYY [at] hh:mm:ss a");
@@ -89,8 +91,18 @@ var timeBlockData = [
     },
 ];
 
+var saveBtn;
+var saveBtnEl;
+var userInput;
+
+// // save data to local storage
+function saveReminder (e) {
+    console.log(userInput);
+    localStorage.setItem("userPlan", JSON.stringify(timeBlockData));
+}
+
 // function to create the time block row elements
-timeBlockData.forEach(function(timeBlockEl) {
+timeBlockData.forEach(function(timeBlockEl, index) {
     // Time Block Row Element
     var rowEl = $("<form>")
         rowEl.addClass("row");
@@ -107,6 +119,15 @@ timeBlockData.forEach(function(timeBlockEl) {
 
         // text content of Description Element
         var descriptionText = $("<textarea>");
+        descriptionText.addClass("user-input");
+
+        localStorage.setItem("userPlan", JSON.stringify(userInput));
+
+        // // save data to local storage
+        // function saveReminder () {
+        // localStorage.setItem("userPlan", JSON.stringify(userInput));
+        // }
+
 
         // appends description element to include the text area
         descriptionEl.append(descriptionText);
@@ -123,23 +144,75 @@ timeBlockData.forEach(function(timeBlockEl) {
         descriptionEl.addClass("future");
     }
 
+     
+
+    var storedPlan = (localStorage.getItem(index));
+    console.log(storedPlan);
+
+
     // creates save button element
-    var saveBtnEl = $("<i class='far fa-save fa-lg'></i>");
-    var saveBtn = $("<button>")
-        saveBtn.addClass("col-md-1 saveBtn");
-    
-        saveBtn.append(saveBtnEl);
+    saveBtnEl = $("<i class='far fa-save fa-lg'></i>");
+    saveBtn = $("<button>")
+            saveBtn.addClass("col-md-1 saveBtn");
+        
+            saveBtn.append(saveBtnEl);
+        
+    // save button event listener
+    // saveBtn.onclick = saveReminder;
+    saveBtn.on("click", function(e){
+        e.preventDefault();
+        userInput = document.getElementById(index);
+        console.log(userInput);
+        console.log(userInput.value);
+        localStorage.setItem(index, userInput.value);
+    });
+
+        
 
     // append the row element data to include the hour element, description element, and the save button
     rowEl.append(hourEl, descriptionEl, saveBtn);
 
+    
 
 });
 
 
-// updates the colors of each timeblock in the banner to either past due, current, or future colors
-// if (dateTime )
+//     // event listener when save button is pressed - assign to local storage and display via functions
+    // saveBtn.on("click", function(e){
+    //     e.preventDefault();
+    //     saveRemimder();
+    // });
 
-// save data to local storage
+
+
+// sets any data in localStorage to the view
+// function displayReminders() {
+//     timeBlockData.forEach(function (_timeBlockEl) {
+//         $(`#${_timeBlockEl.id}`).val(_timeBlockEl.reminder);
+//     })
+// }
+
+// $(".saveBtn").on("click", function (event) {
+//     var eventItem = event.target.parentElement.previousElementSibling.children[0].value;
+//     event.preventDefault();
+//     localStorage.setItem(event.target.attributes[0].value, eventItem);
+//   });
 
 // display data from local storage
+
+// event listener when save button is pressed - assign to local storage and display via functions
+// saveBtn.addEventListener("click", saveReminder)
+
+
+// function init() {
+//     var storedPlan = JSON.parse(localStorage.getItem("userPlan"));
+
+//     if (storedPlan) {
+//         timeBlockData = storedPlan;
+//     }
+
+//     saveReminders();
+//     displayReminders();
+// }
+
+

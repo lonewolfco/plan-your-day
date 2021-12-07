@@ -1,14 +1,20 @@
 :root {
-  --past: #d3d3d3;
-  --present: #ff6961;
-  --future: #77dd77;
+  --past: #8F8F8F;
+  --present: #afd1c7;
+  --saveBtn: #CBA135;
+  --primary: #545F66;
+  --future: #d3d3d3;
+  --saveBtnHover: #826621;
+  --boxShadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
 }
+
 
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   line-height: 1;
+  background-color: #c9c9c969;
 }
 
 textarea {
@@ -24,11 +30,18 @@ textarea {
 
 .jumbotron {
   text-align: center;
-  background-color: transparent;
-  color: black;
+  background-color: var(--primary);
+  color: white;
   border-radius: 0;
-  border-bottom: 7px solid black;
+  border-bottom: 7px solid rgb(31, 30, 30);
+  box-shadow: rgba(0, 0, 0, 0.11) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
+
+
+.container {
+  margin-bottom: 35px;
+}
+
 
 #currentDay {
   margin-top: 32px;
@@ -36,26 +49,30 @@ textarea {
 
 .description {
   white-space: pre-wrap;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
 
 .time-block {
   text-align: center;
   border-radius: 15px;
-  
+  box-shadow: var(--boxShadow);
 }
 
 .row {
   white-space: pre-wrap;
   height: 80px;
   border-top: 1px solid white;
-  
-  
+  margin-bottom: 7px;
+  border-radius: 15px;
 }
 
 .hour {
-  background-color: #ffffff;
+  background-color: #ffffff5e;
   color: #000000;
-  border-top: 1px dashed #000000;
+  border-right: 0px;
+  border-top-left-radius: 12px;
+  box-shadow: var(--boxShadow);
+  border-bottom-left-radius: 12px;
 }
 
 .past {
@@ -69,7 +86,7 @@ textarea {
 }
 
 .future {
-  background-color: (--future);
+  background-color: var(--future);
   color: white;
 }
 
@@ -77,11 +94,13 @@ textarea {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06aed5;
+  background-color: var(--saveBtn);
   color: white;
+  box-shadow: var(--boxShadow);
 }
 
 .saveBtn i:hover {
   font-size: 27px;
   transition: all 0.3s ease-in-out;
+  background-color: var(--saveBtnHover);
 }

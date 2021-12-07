@@ -106,11 +106,11 @@ timeBlockData.forEach(function(timeBlockEl, index) {
     // creates hour element
         var hourEl = $("<div>")
          .text(`${timeBlockEl.hour}${timeBlockEl.meridiem}`)
-         hourEl.addClass("col-md-2 hour");
+         hourEl.addClass("col-md-1 hour");
 
     // creates Description Element
     var descriptionEl = $("<div>")
-        descriptionEl.addClass("col-md-9 description p-0");
+        descriptionEl.addClass("col-md-10 description p-0");
 
         // text content of Description Element
         var descriptionText = $("<textarea>");

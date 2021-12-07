@@ -95,11 +95,6 @@ var saveBtn;
 var saveBtnEl;
 var userInput;
 
-// // save data to local storage
-function saveReminder (e) {
-    console.log(userInput);
-    localStorage.setItem("userPlan", JSON.stringify(timeBlockData));
-}
 
 // function to create the time block row elements
 timeBlockData.forEach(function(timeBlockEl, index) {
@@ -109,7 +104,7 @@ timeBlockData.forEach(function(timeBlockEl, index) {
         $(".container").append(rowEl);
 
     // creates hour element
-    var hourEl = $("<div>")
+        var hourEl = $("<div>")
          .text(`${timeBlockEl.hour}${timeBlockEl.meridiem}`)
          hourEl.addClass("col-md-2 hour");
 
@@ -120,13 +115,6 @@ timeBlockData.forEach(function(timeBlockEl, index) {
         // text content of Description Element
         var descriptionText = $("<textarea>");
         descriptionText.addClass("user-input");
-
-        localStorage.setItem("userPlan", JSON.stringify(userInput));
-
-        // // save data to local storage
-        // function saveReminder () {
-        // localStorage.setItem("userPlan", JSON.stringify(userInput));
-        // }
 
 
         // appends description element to include the text area
@@ -145,9 +133,10 @@ timeBlockData.forEach(function(timeBlockEl, index) {
     }
 
      
-
-    var storedPlan = (localStorage.getItem(index));
-    console.log(storedPlan);
+    // variable that gets the data saved in the local storage & assigns it to my text area
+    var storePlan = (localStorage.getItem(index));
+    console.log(storePlan);
+    descriptionText.val(storePlan);
 
 
     // creates save button element
@@ -157,15 +146,18 @@ timeBlockData.forEach(function(timeBlockEl, index) {
         
             saveBtn.append(saveBtnEl);
         
-    // save button event listener
-    // saveBtn.onclick = saveReminder;
-    saveBtn.on("click", function(e){
-        e.preventDefault();
-        userInput = document.getElementById(index);
-        console.log(userInput);
-        console.log(userInput.value);
-        localStorage.setItem(index, userInput.value);
-    });
+        // save button event listener
+        // userInput variable is equal to the row numbers of each textarea tag as an index
+        // sets the specific text area tag whose ID is represented by a number value to the local storage
+        saveBtn.on("click", function(e){
+            e.preventDefault();
+            userInput = document.getElementById(index);
+            console.log(userInput);
+            console.log(userInput.value);
+            localStorage.setItem(index, userInput.value);
+            // userInput.value = storePlan;
+            return userInput;
+        });
 
         
 
@@ -175,44 +167,4 @@ timeBlockData.forEach(function(timeBlockEl, index) {
     
 
 });
-
-
-//     // event listener when save button is pressed - assign to local storage and display via functions
-    // saveBtn.on("click", function(e){
-    //     e.preventDefault();
-    //     saveRemimder();
-    // });
-
-
-
-// sets any data in localStorage to the view
-// function displayReminders() {
-//     timeBlockData.forEach(function (_timeBlockEl) {
-//         $(`#${_timeBlockEl.id}`).val(_timeBlockEl.reminder);
-//     })
-// }
-
-// $(".saveBtn").on("click", function (event) {
-//     var eventItem = event.target.parentElement.previousElementSibling.children[0].value;
-//     event.preventDefault();
-//     localStorage.setItem(event.target.attributes[0].value, eventItem);
-//   });
-
-// display data from local storage
-
-// event listener when save button is pressed - assign to local storage and display via functions
-// saveBtn.addEventListener("click", saveReminder)
-
-
-// function init() {
-//     var storedPlan = JSON.parse(localStorage.getItem("userPlan"));
-
-//     if (storedPlan) {
-//         timeBlockData = storedPlan;
-//     }
-
-//     saveReminders();
-//     displayReminders();
-// }
-
 

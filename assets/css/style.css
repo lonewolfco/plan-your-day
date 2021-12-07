@@ -1,3 +1,10 @@
+:root {
+  --past: #d3d3d3;
+  --present: #ff6961;
+  --future: #77dd77;
+
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -52,17 +59,17 @@ textarea {
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: var(--past);
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
+  background-color: var(--present);
   color: white;
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: (--future);
   color: white;
 }
 

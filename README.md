@@ -1,5 +1,8 @@
 # Plan Your Day: Simple Scheduling App
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 Get your day set up for success with this interactive daily planner. Schedule your work day, meeting timelines, or daily tasks.
+
 
 ## Live Application
 https://loselby.github.io/plan-your-day/

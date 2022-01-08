@@ -5,7 +5,7 @@ Get your day set up for success with this interactive daily planner. Schedule yo
 
 
 ## Live Application
-https://loselby.github.io/plan-your-day/
+https://lonewolfco.github.io/plan-your-day/
 
 ## Task
 
